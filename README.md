@@ -1,28 +1,86 @@
-# Single server with infinite capacity (M/M/1):(oo/FIFO)
-## Aim :
-To find (a) average number of materials in the system (b) average number of materials in the conveyor (c) waiting time of each material in the system (d) waiting time of each material in the conveyor, if the arrival  of materials follow poisson process with the mean interval time 12 seconds, serivice time of lathe machine follows exponential distribution with mean serice time 1 second and average service time of robot is 7seconds.
-
-## Software required :
-Visual components and Python
-
-## Theory:
-Queuing are the most frequently encountered problems in everyday life. For example, queue at a cafeteria, library, bank, etc. Common to all of these cases are the arrivals of objects requiring service and the attendant delays when the service mechanism is busy. Waiting lines cannot be eliminated completely, but suitable techniques can be used to reduce the waiting time of an object in the system. A long waiting line may result in loss of customers to an organization. Waiting time can be reduced by providing additional service facilities, but it may result in an increase in the idle time of the service mechanism.
-
-![image](1.png)
-
-This is a queuing model in which the arrival is Marcovian and departure distribution is also Marcovian,number of server is one and size of the queue is also Marcovian,no.of server is one and size of the queue is infinite and service discipline is 1st come 1st serve(FCFS) and the calling source is also finite.
-
-## Procedure :
-
-![imAGE](2.png)
+#  Mean and variance of a discrete  distribution
 
 
+# Aim : 
 
-## Experiment:
-
-
-## Program
+To find mean and variance of arrival of objects from the feeder using probability distribution
 
 
-## Output  and result
+# Software required :  
+
+Python and Visual components tool
+
+# Theory:
+
+The expectation or the mean of a discrete random variable is a weighted average of all possible
+values of the random variable. The weights are the probabilities associated with the corresponding values. 
+It is calculated as,
+
+![image](https://user-images.githubusercontent.com/103921593/192938463-e34177f4-f188-48a0-bda2-8f6d1d660ed2.png)
+
+The variance of a random variable shows the variability or the scatterings of the random variables.
+It shows the distance of a random variable from its mean. It is calcualted as
+
+![image](https://user-images.githubusercontent.com/103921593/192938695-99fedc01-34d5-4d36-84df-5880e766ed0c.png)
+
+
+# Procedure :
+
+1. Construct frequency distribution for the data
+
+2. Find the  probability distribution from frequency distribution.
+
+3. Calculate mean using 
+   
+   ![image](https://user-images.githubusercontent.com/103921593/192940431-03b81777-c54d-4286-b4f4-82dfe7666b4c.png)
+
+4. Find  
+   
+      ![image](https://user-images.githubusercontent.com/103921593/192940255-2d9dd746-6875-4a6d-877b-6da6cdb96ab1.png)
+
+5.  Calculate variance using 
+  
+      ![image](https://user-images.githubusercontent.com/103921593/192942852-913550a9-fabe-4a55-b956-0487b18bbd97.png)
+
+
+# Experiment :
+![Vs2](https://user-images.githubusercontent.com/93427255/192952325-44c88357-0497-4b4c-baed-d7eb884b73f7.PNG)
+
+
+# Program :
+```
+DONE BY: PRANAVE B
+REG NO : 212221240040
+```
+```
+
+import numpy as np
+L=[int(i) for i in input().split()]
+N=len(L); M=max(L) 
+x=list();f=list()
+for i in range (M+1):
+    c = 0
+    for j in range(N):
+        if L[j]==i:
+            c=c+1
+    f.append(c)
+    x.append(i)
+sf=np.sum(f)
+p=list()
+for i in range(M+1):
+    p.append(f[i]/sf) 
+mean=np.inner(x,p)
+EX2=np.inner(np.square(x),p)
+var=EX2-mean**2 
+SD=np.sqrt(var)
+print("The Mean arrival rate is %.3f "%mean)
+print("The Variance of arrival from feeder is %.3f "%var) 
+print("The Standard deviation of arrival from feeder is %.3F "%SD)
+```
+
+
+
+# Results and Output : 
+![Output](https://user-images.githubusercontent.com/93427255/192952280-fe1099cd-2c3d-4586-b748-5ac5dd48e250.PNG)
+
 
